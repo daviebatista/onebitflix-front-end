@@ -7,7 +7,7 @@
 .subTitle   {
     font-size: 18px;
     font-weight: bold;
-    color: $lightRed;
+    color: $lightYellow;
 }
 
 .title  {
@@ -24,6 +24,7 @@
 
 .btnCta {
     font-weight: bold;
+    text-decoration: none;
     color: white;
 
     display: flex;
@@ -31,14 +32,14 @@
     gap: 25px;
 
     padding: 14px 30px;
-    border: 2px solid $lightRed;
+    border: 2px solid $lightYellow;
 
     .btnImg {
-        width: 11px;
+        width: 15px;
     }
 
     &:hover {
-        border-color: $darkRed;
+        border-color: $goldenYellow;
         color: $lightGray;
         background-color: transparent;
     }

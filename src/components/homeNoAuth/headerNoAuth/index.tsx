@@ -5,13 +5,13 @@ import Link from 'next/link';
 const HeaderNoAuth = function ()    {
     return (
     <>
-        <div className={styles.ctaSection}>
+        <div className={styles.ctaSection + ' sticky-top'}>
             <img
             src="/homeNoAuth/logoCta.png"
             alt="logoCta"
             className={styles.imgCta}
             />
-            <p>Se cadastre para ter acesso aos cursos</p>
+            <p className='text-dark'>Se cadastre para ter acesso aos cursos</p>
             <img
             src="/homeNoAuth/logoCta.png"
             alt="logoCta"
@@ -19,13 +19,13 @@ const HeaderNoAuth = function ()    {
             />
         </div>
         <Container className={styles.nav}>
-            <img src="/logoOnebitflix.svg" alt="logoOneBitFlix" className={styles.imgLogoNav}/>
+            <img src="/logoVeritas.png" alt="logoOneBitFlix" className={styles.imgLogoNav}/>
             <div>
                 <Link href='/login'>
                     <Button outline className={styles.navBtn}>Entrar</Button>
                 </Link>
                 <Link href='/register'>
-                    <Button outline className={styles.navBtn}>Quero fazer parte</Button>
+                    <Button outline className={styles.navBtn}>Cadastrar-se</Button>
                 </Link>
             </div>
         </Container>

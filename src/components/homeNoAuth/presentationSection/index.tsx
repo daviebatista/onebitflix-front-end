@@ -9,13 +9,13 @@ const PresentationSection = function    ()  {
                 <Row>
                     <Col md className='d-flex flex-column justify-content-center align-items-start'>
                         <p className={styles.subTitle}>ACESSO ILIMITADO</p>
-                        <p className={styles.title}>Tenha acesso aos melhores <br/> tutoriais de programação.</p>
-                        <p className={styles.description}>Estude de onde estiver, a qualquer momento, e continue <br/>
-                        evoluindo como programador.</p>
+                        <p className={styles.title}>Tenha acesso aos melhores <br/> e mais completos cursos de história e filosofia.</p>
+                        <p className={styles.description}>Estude de onde estiver, a qualquer momento, e enriqueça <br/>
+                        sua mente com a verdade.</p>
                         <Link href='/register'>
                             <Button outline className={styles.btnCta}>
                                 ACESSE AGORA
-                                <img src="/buttonPlay.svg"
+                                <img src="/playButton.png"
                                 alt="buttonImg"
                                 className={styles.btnImg}
                                 />

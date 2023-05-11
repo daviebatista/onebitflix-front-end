@@ -1,7 +1,7 @@
 @import '../../../../styles/colors.module.scss';
 
 .ctaSection {
-    background-color: $lightRed;
+    background-color: $lightYellow;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,7 +30,7 @@
     color: $lightGray;
 
     &:hover {
-        border-color: $lightRed;
+        border-color: $lightYellow;
         color: white;
         background-color: transparent;
     }
