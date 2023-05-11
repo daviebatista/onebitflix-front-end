@@ -7,6 +7,7 @@ import SlideSection from "@/components/homeNoAuth/slideSection";
 import { GetStaticProps } from "next";
 import courseService, { CourseType } from "@/services/courseService";
 import { ReactNode } from "react";
+import Footer from "@/components/common/footer";
 
 interface IndexPageProps    {
     children?: ReactNode;
@@ -19,7 +20,7 @@ const HomeNoAuth = ({course}: IndexPageProps)   =>  {
             <Head>
                 <title>Veritas</title>
                 <link rel="icon" href="/favicon.png" type="image/x-icon" />
-                <meta property="og:title" content="Onebitflix" key="title"/>
+                <meta property="og:title" content="Veritas Learning" key="title"/>
 				<meta name="description" content="Tenha acesso às melhores aulas da história e da filosofia."/>
             </Head>
             <main>
@@ -29,6 +30,7 @@ const HomeNoAuth = ({course}: IndexPageProps)   =>  {
                 </div>
                 <CardsSection/>
                 <SlideSection newestCourses={course}/>
+                <Footer/>
             </main>
         </>
     )
