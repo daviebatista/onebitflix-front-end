@@ -14,7 +14,7 @@ const Register = function () {
     const [toastMessage, setToastMessage] = useState("");
 
     useEffect(() => {
-        if (sessionStorage.getItem("veritas-token")) {
+        if (sessionStorage.getItem("onebitflix-token")) {
         router.push("/home");
         }
     }, []);

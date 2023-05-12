@@ -12,7 +12,11 @@ const PresentationSection = function    ()  {
                         <p className={styles.title}>Tenha acesso aos melhores <br/> e mais completos cursos de história e filosofia.</p>
                         <p className={styles.description}>Estude de onde estiver, a qualquer momento, e enriqueça <br/>
                         sua mente com a verdade.</p>
-                        <Link href='/register'>
+                        <Link 
+                            href='/register'
+                            style={{
+                                textDecoration: "none"
+                            }}>
                             <Button outline className={styles.btnCta}>
                                 ACESSE AGORA
                                 <img src="/playButton.png"

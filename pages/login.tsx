@@ -15,7 +15,7 @@ const Login = function () {
     const [toastMessage, setToastMessage] = useState("")
 
     useEffect(() => {
-        if (sessionStorage.getItem("veritas-token")) {
+        if (sessionStorage.getItem("onebitflix-token")) {
         router.push("/home")
         }
     }, [])
@@ -65,7 +65,7 @@ const Login = function () {
                     <HeaderGeneric
                     logoUrl="/"
                     btnUrl="/register"
-                    btnContent="Quero fazer parte"
+                    btnContent="Cadastrar-se"
                     />
                     <Container className="py-5">
                     <p className={styles.formTitle}>Bem-vindo(a) de volta!</p>
