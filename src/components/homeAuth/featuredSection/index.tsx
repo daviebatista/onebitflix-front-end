@@ -10,7 +10,7 @@ const FeaturedSection = function    ()  {
     const {data, error} = useSWR('/featured', courseService.getFeaturedCourses)
 
     if(error) return error
-    if(!data) return(<><p>Lorem</p></>)
+    if(!data) return(<><p>Loading data...</p></>)
 
     return  (
                 <>
