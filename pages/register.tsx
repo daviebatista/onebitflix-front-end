@@ -111,7 +111,7 @@ const Register = function () {
                             />
                     </FormGroup>
                     <FormGroup>
-                        <Label for="email" className={styles.label}>Email</Label>
+                        <Label for="email" className={styles.label}>E-mail</Label>
                         <Input
                             id="email"
                             name="email"
