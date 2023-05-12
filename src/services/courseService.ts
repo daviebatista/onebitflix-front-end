@@ -20,8 +20,6 @@ export type CourseType  =   {
 const courseService =   {
     getNewestCourses: async  ()  =>  {
         const response = await api.get('/courses/newest').catch((error) =>  {
-            console.log(error.response.data.message)
-
             return error.response.data
         })
 
@@ -35,12 +33,46 @@ const courseService =   {
                 Authorization: `Bearer ${token}`,
             },
         }).catch((error)    =>  {
-            console.log(error.response.data.message)
-
             return error.response
         })
         return response
     },
+    addToFavorites:   async   (courseId: number | string)  =>  {
+        const token = sessionStorage.getItem('onebitflix-token')
+
+        const response = await api.post('/favorites',   {
+            headers:    {
+                Authorization: `Bearer ${token}`
+            }
+        }).catch(error =>  {
+            return error.response
+        })
+        return response
+    },
+    removeFromFavorites:    async   (courseId: number | string) =>  {
+        const token = sessionStorage.getItem('onebitflix-token')
+
+        const response = await api.delete('/favorites', {
+            headers:    {
+                Authorization: `Bearer ${token}`
+            },
+            data:   {   courseId   },
+        }).catch((error)    =>  {
+            return error.response
+        })
+    },
+    getFavoriteCourses: async   (courseId: number | string) =>  {
+        const token = sessionStorage.getItem('onebitflix-token')
+
+        const response = await api.get('/favorites', {
+            headers:    {
+                Authorization: `Bearer ${token}`
+            }
+        }).catch((error)    =>  {
+            return error.response
+        })
+        return response
+    }
 }
 
 export default courseService
