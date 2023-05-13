@@ -9,6 +9,7 @@ export type CategoryType    =   {
 }
 
 const categoriesService =   {
+    //Buscar as categorias//
     getCategories: async    ()  =>  {
         const token = sessionStorage.getItem('onebitflix-token')
 
@@ -22,6 +23,7 @@ const categoriesService =   {
 
         return response
     },
+    //Buscar os cursos//
     getCourses: async    (id: number)  =>  {
         const token = sessionStorage.getItem('onebitflix-token')
 

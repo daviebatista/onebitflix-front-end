@@ -15,6 +15,7 @@ interface LoginParams {
 }
 
 const authService   =   {
+    //Registrar novo usuário//
     register: async (params: RegisterParams)  =>  {
         const response  =   await api.post('/auth/register', params).catch((error)  =>  {
             if  (error.response.status  === 400) return error.response
@@ -23,20 +24,20 @@ const authService   =   {
         
         return response
     },
-
+    //Login do usuário//
     login: async (params: LoginParams) => {
 	const res = await api.post("/auth/login", params).catch((error) => {
-  if (error.response.status === 400 || error.response.status === 401) {
-	  return error.response;
-  }
-  return error;
-  });
+    if (error.response.status === 400 || error.response.status === 401) {
+        return error.response;
+    }
+    return error;
+    });
 
-	if (res.status === 200) {
-	  sessionStorage.setItem("onebitflix-token", res.data.token);
-  }
+        if (res.status === 200) {
+        sessionStorage.setItem("onebitflix-token", res.data.token);
+    }
 
-  return res;
+    return res;
 },
 }
 

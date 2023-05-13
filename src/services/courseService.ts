@@ -18,6 +18,7 @@ export type CourseType  =   {
 }
 
 const courseService =   {
+    //Pegar os cursos mais recentes//
     getNewestCourses: async  ()  =>  {
         const response = await api.get('/courses/newest').catch((error) =>  {
             return error.response.data
@@ -25,6 +26,7 @@ const courseService =   {
 
         return response
     },
+    //Pegar os cursos em destaque//
     getFeaturedCourses: async () => {
         const token = sessionStorage.getItem('onebitflix-token')
 
@@ -37,6 +39,7 @@ const courseService =   {
         })
         return response
     },
+    //Adicionar um curso aos favoritos//
     addToFavorites:   async   (courseId: number | string)  =>  {
         const token = sessionStorage.getItem('onebitflix-token')
 
@@ -49,6 +52,7 @@ const courseService =   {
         })
         return response
     },
+    //Remover um curso dos favoritos do usuário//
     removeFromFavorites:    async   (courseId: number | string) =>  {
         const token = sessionStorage.getItem('onebitflix-token')
 
@@ -61,6 +65,7 @@ const courseService =   {
             return error.response
         })
     },
+    //Pegar os cursos favoritos do usuário//
     getFavoriteCourses: async   (courseId: number | string) =>  {
         const token = sessionStorage.getItem('onebitflix-token')
 
