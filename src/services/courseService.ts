@@ -77,6 +77,20 @@ const courseService =   {
             return error.response
         })
         return response
+    },
+    //Pesquisa de cursos//
+    getSearch:  async   (name: string)  =>  {
+        const token = sessionStorage.getItem('onebitflix-token')
+
+        const response = await api.get(`/courses/search?name=${name}`, {
+            headers:    {
+                Authorization: `Bearer ${token}`
+            }
+        }).catch((error)    =>  {
+            return error.response
+        })
+
+        return response
     }
 }
 
