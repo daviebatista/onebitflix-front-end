@@ -4,6 +4,9 @@ import HeaderAuth from "../src/components/common/headerAuth";
 import { useRouter } from "next/router";
 import { useState, useEffect } from 'react'
 import courseService, { CourseType } from "@/services/courseService";
+import { Container } from "reactstrap";
+import SearchCard from "@/components/searchCard";
+import Footer from "@/components/common/footer";
 
 const Search = function () {
     const router = useRouter()
@@ -25,16 +28,27 @@ const Search = function () {
     return (
             <>
                 <Head>
-                    <title>Onebitflix - {searchName}</title>
-                    <link rel="shortcut icon" href="/favicon.svg" type="image/x-icon" />
+                    <title>Veritas - {searchName}</title>
+                    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
                 </Head>
-                <main>
+                <main className={styles.main}>
+                    <div className={styles.header}>
                     <HeaderAuth />
-                    {searchResult?.map((course)   =>  (
-                        <div key={course.id}>
-                            <p>{course.name} </p>
-                        </div>
-                    ))}
+                    </div>
+                    <section className={styles.mainContent}>
+                    {searchResult.length >= 1 ? (
+                        <Container className="d-flex flex-wrap justify-content-center gap-5 py-4">
+                        {searchResult?.map((course) => (
+                            <SearchCard key={course.id} course={course} />
+                        ))}
+                        </Container>
+                    ) : (
+                        <p className={styles.noSearchText}>Nenhum resultado encontrado!</p>
+                    )}
+                    </section>
+                    <div className={styles.footer}>
+                    <Footer />
+                    </div>
                 </main>
             </>
     )
