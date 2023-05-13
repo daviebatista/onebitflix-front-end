@@ -108,9 +108,9 @@
     padding: 6px 20px;
 
     &:hover {
-        border-color: $goldenYellow;
         background-color: transparent;
-        color: $lightGray;
+        border-color: $lightGray;
+        color: $goldenYellow;
     }
 }
 
@@ -132,7 +132,17 @@
     &:hover {
         background-color: transparent;
         border-color: $lightYellow;
-        color: $lightGray;
+        color: $goldenYellow;
+    }
+
+    &:active    {
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    &:focus {
+        background-color: transparent;
+        box-shadow: none;
     }
 }
 
