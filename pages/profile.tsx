@@ -6,9 +6,25 @@ import { Button, Col, Container, Row } from "reactstrap";
 import Footer from "@/components/common/footer";
 import { useState, useEffect } from 'react'
 import PasswordForm from "@/components/profile/password";
+import PageSpinner from "@/components/common/spinner";
+import { useRouter } from "next/router";
 
 const UserInfo = function   ()  {
     const [form, setForm] = useState("userForm")
+    const router = useRouter()
+    const [loading, setLoading] = useState(true)
+
+    useEffect(()    =>  {
+        if  (!sessionStorage.getItem('onebitflix-token'))  {
+            router.push('/login')
+        }   else   {
+            setLoading(false)
+        }
+    }, [])
+
+    if(loading) {
+        return <PageSpinner/>
+    }
 
     return(
         <>

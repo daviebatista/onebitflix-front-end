@@ -21,15 +21,47 @@ const EpisodePlayer = function () {
     const [getEpisodeTime, setGetEpisodeTime] = useState(0)
     const [episodeTime, setEpisodeTime] = useState(0)
 
+    const [loading, setLoading] = useState(true)
     const playerRef = useRef<ReactPlayer>(null)
+
+    //Busca do curso
+    const getCourse = async function () {
+        if(typeof courseId !== 'string') return
+
+        const response = await courseService.getEpisodes(courseId)
+
+        if  (response.status === 200)   {
+            setCourse(response.data)
+        }
+    }
+
+    useEffect(()    =>  {
+        getCourse()
+    }, [courseId])
+
+    useEffect(()    =>  {
+        if  (!sessionStorage.getItem('onebitflix-token'))  {
+            router.push('/login')
+        }   else   {
+            setLoading(false)
+        }
+    }, [])
 
     //Pegar o tempo do episódio
     const handleGetEpisodeTime = async () =>    {
-        const response = await watchEpisodeService.getWatchTime(episodeId)
+            const response = await watchEpisodeService.getWatchTime(episodeId)
+    
+            if  (response.data !== null)    {
+                setGetEpisodeTime(response.data.seconds)
+            }
+    }
 
-        if  (response.data !== null)    {
-            setGetEpisodeTime(response.data.seconds)
-        }
+    useEffect(()    =>  {
+        handleGetEpisodeTime()
+    }, [router])
+
+    if(loading) {
+        return <PageSpinner/>
     }
 
     //Settar o tempo do episódio
@@ -51,25 +83,11 @@ const EpisodePlayer = function () {
         }, 1000 * 3)
     }
 
-    useEffect(()    =>  {
-        handleGetEpisodeTime()
-    }, [router])
-    
 
-    //Busca do curso
-    const getCourse = async function () {
-        if(typeof courseId !== 'string') return
 
-        const response = await courseService.getEpisodes(courseId)
 
-        if  (response.status === 200)   {
-            setCourse(response.data)
-        }
-    }
 
-    useEffect(()    =>  {
-        getCourse()
-    }, [courseId])
+
 
 
 
