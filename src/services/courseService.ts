@@ -76,6 +76,35 @@ const courseService =   {
         }).catch((error)    =>  {
             return error.response
         })
+
+        return response
+    },
+    addLikeToCourse: async (courseId: number | string) => {
+        const token = sessionStorage.getItem("onebitflix-token")
+    
+        const res = await api.post("/likes", { courseId }, {
+                headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        }).catch((error) => {
+            console.log(error.response.data.message);
+        
+            return error.response;
+        })
+    
+        return res;
+    },
+    removeLikeFromCourse: async   (courseId: number | string) =>  {
+        const token = sessionStorage.getItem('onebitflix-token')
+
+        const response = await api.delete(`/likes/${courseId}`, {
+            headers:    {
+                Authorization: `Bearer ${token}`
+            }
+        }).catch((error)    =>  {
+            return error.response
+        })
+        
         return response
     },
     //Pesquisa de cursos//
@@ -83,6 +112,19 @@ const courseService =   {
         const token = sessionStorage.getItem('onebitflix-token')
 
         const response = await api.get(`/courses/search?name=${name}`, {
+            headers:    {
+                Authorization: `Bearer ${token}`
+            }
+        }).catch((error)    =>  {
+            return error.response
+        })
+
+        return response
+    },
+    getEpisodes:  async   (id: number | string)  =>  {
+        const token = sessionStorage.getItem('onebitflix-token')
+
+        const response = await api.get(`/courses/${id}`, {
             headers:    {
                 Authorization: `Bearer ${token}`
             }
