@@ -43,10 +43,10 @@ const courseService =   {
     addToFavorites:   async   (courseId: number | string)  =>  {
         const token = sessionStorage.getItem('onebitflix-token')
 
-        const response = await api.post('/favorites',   {
+        const response = await api.post('/favorites',   {courseId}, {
             headers:    {
                 Authorization: `Bearer ${token}`
-            }
+            },
         }).catch(error =>  {
             return error.response
         })
@@ -56,14 +56,15 @@ const courseService =   {
     removeFromFavorites:    async   (courseId: number | string) =>  {
         const token = sessionStorage.getItem('onebitflix-token')
 
-        const response = await api.delete('/favorites', {
+        const response = await api.delete(`/favorites/${courseId}`, {
             headers:    {
                 Authorization: `Bearer ${token}`
             },
-            data:   {   courseId   },
         }).catch((error)    =>  {
             return error.response
         })
+
+        return response
     },
     //Pegar os cursos favoritos do usuário//
     getFavoriteCourses: async   (courseId: number | string) =>  {
