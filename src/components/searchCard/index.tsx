@@ -10,7 +10,7 @@ const SearchCard = function ({course}: props) {
     return (
         <>
             <Link
-                href={`/courses/${course.id}`}
+                href={`/course/${course.id}`}
                 style={{
                 textDecoration: "none"
             }}>
